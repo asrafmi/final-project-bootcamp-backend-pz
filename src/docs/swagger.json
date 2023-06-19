@@ -1,0 +1,365 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Sample Produk",
+      "description": "List API Untuk Produk",
+      "version": "1.0.0"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "schemes": [
+      "http",
+      "https"
+    ],
+    "securityDefinitions": {
+      "Bearer": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header",
+        "description": "auhtentication bearer header\n"
+      }
+    },
+    "security": [
+      {
+        "Bearer": []
+      }
+    ],
+    "paths": {
+      "/product": {
+        "get": {
+          "summary": "API get semua product.",
+          "description": "API untuk mengambil semua produk tanpa kecuali.\nUntuk memberikan informasi tentang data produk\n",
+          "tags": [
+            "Produk"
+          ],
+          "parameters": [
+            {
+              "in": "query",
+              "name": "search",
+              "type": "string"
+            },
+            {
+              "in": "query",
+              "name": "sortBy",
+              "type": "string"
+            },
+            {
+              "in": "query",
+              "name": "sortTo",
+              "type": "string"
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
+        "post": {
+          "summary": "API Simpan produk",
+          "description": "API untuk menyimpan produk sesukamu",
+          "tags": [
+            "Produk"
+          ],
+          "parameters": [
+            {
+              "name": "produk",
+              "in": "body",
+              "required": true,
+              "description": "Data produk yang akan ditambahkan",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  },
+                  "quantity": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/product/{id}": {
+        "get": {
+          "summary": "API get satu product.",
+          "description": "API untuk mengambil satu produk\nUntuk memberikan informasi tentang data produk\n",
+          "tags": [
+            "Produk"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
+        "put": {
+          "summary": "API update satu product.",
+          "description": "API untuk mengupdate satu produk\nUntuk mengubah data tentang produk\n",
+          "tags": [
+            "Produk"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "produk",
+              "in": "body",
+              "required": true,
+              "description": "Data produk yang akan ditambahkan",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  },
+                  "quantity": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
+        "delete": {
+          "summary": "API hapus satu product.",
+          "description": "API untuk menghapus satu produk\nUntuk menghapus informasi tentang data produk\n",
+          "tags": [
+            "Produk"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/catalog": {
+        "get": {
+          "summary": "API get semua product.",
+          "description": "API untuk mengambil semua produk tanpa kecuali.\nUntuk memberikan informasi tentang data produk\n",
+          "tags": [
+            "Catalog"
+          ],
+          "parameters": [
+            {
+              "in": "query",
+              "name": "search",
+              "type": "string"
+            },
+            {
+              "in": "query",
+              "name": "sortBy",
+              "type": "string"
+            },
+            {
+              "in": "query",
+              "name": "sortTo",
+              "type": "string"
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
+        "post": {
+          "summary": "API Simpan produk",
+          "description": "API untuk menyimpan produk sesukamu",
+          "tags": [
+            "Catalog"
+          ],
+          "parameters": [
+            {
+              "name": "produk",
+              "in": "body",
+              "required": true,
+              "description": "Data produk yang akan ditambahkan",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  },
+                  "quantity": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/catalog/{id}": {
+        "get": {
+          "summary": "API get satu product.",
+          "description": "API untuk mengambil satu produk\nUntuk memberikan informasi tentang data produk\n",
+          "tags": [
+            "Catalog"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
+        "put": {
+          "summary": "API update satu product.",
+          "description": "API untuk mengupdate satu produk\nUntuk mengubah data tentang produk\n",
+          "tags": [
+            "Catalog"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "produk",
+              "in": "body",
+              "required": true,
+              "description": "Data produk yang akan ditambahkan",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  },
+                  "quantity": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
+        "delete": {
+          "summary": "API hapus satu product.",
+          "description": "API untuk menghapus satu produk\nUntuk menghapus informasi tentang data produk\n",
+          "tags": [
+            "Catalog"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      }
+    }
+  }
