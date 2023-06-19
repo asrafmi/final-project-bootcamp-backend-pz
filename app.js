@@ -1,9 +1,12 @@
 const express = require('express');
-const connectDB = require('./src/database');
-
 const app = express();
+const connectDB = require('./src/database');
+const auth = require('./src/middleware/auth')
 
 connectDB();
+
+// middleware
+app.use('/', auth)
 
 /**
  * routing
