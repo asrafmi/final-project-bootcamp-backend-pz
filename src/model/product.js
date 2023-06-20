@@ -1,11 +1,20 @@
+const { Double, Decimal128 } = require('mongodb');
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
 const productSchema = new Schema(
   {
+    uuid: {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
+      required: true,
+    },
+    category_id: {
+      type: Number,
       required: true,
     },
     price: {
@@ -14,6 +23,14 @@ const productSchema = new Schema(
     },
     stock: {
       type: Number,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    rating: {
+      type: Decimal128,
       required: true,
     },
   },

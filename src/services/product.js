@@ -1,4 +1,4 @@
-const Product = require('../model/model');
+const Product = require('../model/product');
 
 async function fetch() {
   const data = await Product.find({});
@@ -9,7 +9,7 @@ async function fetch() {
   }
 }
 async function getOne(id) {
-  const data = await Product.findOne({ _id: id });
+  const data = await Product.findOne({ id });
   return data;
 }
 async function create(body) {
@@ -28,7 +28,7 @@ async function update(body, id) {
   return data;
 }
 async function destroy(id) {
-  const data = await Product.findOneAndDelete({ _id: id });
+  const data = await Product.findOneAndDelete({ id });
   return data;
 }
 

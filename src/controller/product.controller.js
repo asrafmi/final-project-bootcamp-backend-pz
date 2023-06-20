@@ -1,4 +1,4 @@
-const productSvc = require('../services/product');
+const productSvc = require("../services/product");
 
 async function fetch(req, res) {
   const data = await productSvc.fetch();
