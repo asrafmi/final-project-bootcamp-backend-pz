@@ -1,6 +1,6 @@
 const productSvc = require('./product');
 const Product = require('../models/product');
-const productFixtures = require('../bin/example/products.js');
+const productFixtures = require('../bin/example/products.json');
 
 describe('.fetch()', () => {
   afterEach(() => {

@@ -1,4 +1,4 @@
-const Product = require('../model/product');
+const Product = require('../models/product');
 
 async function fetch() {
   const data = await Product.find({});
