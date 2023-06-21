@@ -4,6 +4,7 @@ const config = require('../../config/config')
 async function connect() {
   try {
     await mongoose.connect(config.dbUrl, { authSource: 'admin' });
+    console.log("Database Connected Successfully");
   } catch (error) {
     console.log(error);
     throw new Error(error.message);

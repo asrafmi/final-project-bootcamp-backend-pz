@@ -1,6 +1,5 @@
 [
   {
-    "uuid": "asdashjdkjash",
     "name": "Minuman Soda",
     "category_id": 1,
     "price": 2500,
@@ -9,7 +8,6 @@
     "rating": 4
   },
   {
-    "uuid": "asdashjdkjash",
     "name": "Minuman Soda",
     "category_id": 1,
     "price": 2500,
@@ -18,7 +16,6 @@
     "rating": 4
   },
   {
-    "uuid": "asdashjdkjash",
     "name": "Minuman Soda",
     "category_id": 1,
     "price": 2500,

@@ -9,7 +9,7 @@ async function fetch() {
   }
 }
 async function getOne(id) {
-  const data = await Product.findOne({ id });
+  const data = await Product.findOne({ _id : id });
   return data;
 }
 async function create(body) {
@@ -19,16 +19,16 @@ async function create(body) {
 }
 async function update(body, id) {
   const data = await Product.findOneAndUpdate(
-    { _id: id },
+    { _id : id },
     { ...body },
     {
-      replace: true,
+      new: true,
     }
   );
   return data;
 }
 async function destroy(id) {
-  const data = await Product.findOneAndDelete({ id });
+  const data = await Product.findOneAndDelete({ _id : id });
   return data;
 }
 

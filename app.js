@@ -1,16 +1,18 @@
 const express = require("express");
 const connectDB = require("./src/database/product");
+const bodyParser = require("body-parser");
 
 const app = express();
-
 connectDB();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 /**
  * routing
  */
-const routesApiV1 = require("./src/routes/route-v1");
+const routesApi = require("./src/routes/route");
 
-app.use("/api/v1", routesApiV1);
+app.use("/api", routesApi);
 app
   .route("*")
   .get((req, res) => {
