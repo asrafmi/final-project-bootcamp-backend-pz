@@ -5,7 +5,7 @@ async function fetch() {
   if (data.length) {
     return data;
   } else {
-    return { message: 'data is empty' };
+    return { message: 'Data kosong' };
   }
 }
 async function getOne(id) {
@@ -25,10 +25,16 @@ async function update(body, id) {
       new: true,
     }
   );
+  if(!data){
+    throw new Error('Data tidak ditemukan')
+  }
   return data;
 }
 async function destroy(id) {
   const data = await Product.findOneAndDelete({ _id: id });
+  if(!data){
+    throw new Error('Data tidak ditemukan')
+  }
   return data;
 }
 
