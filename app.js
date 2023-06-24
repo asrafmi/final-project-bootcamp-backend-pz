@@ -1,11 +1,13 @@
 const express = require("express");
+const app = express();
 const swaggerUI = require('swagger-ui-express');
 const swagger = require('./src/docs/swagger.json')
-const connectDB = require("./src/database/product");
-const bodyParser = require("body-parser");
-
-const app = express();
+const connectDB = require("./src/database");
 connectDB();
+const bodyParser = require("body-parser");
+const dotenv = require('dotenv').config();
+const PORT = process.env.PORT
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -33,7 +35,7 @@ app
   });
 
 
-app.listen(3000, () => {
-  console.log("application listen on http://localhost:3000");
+app.listen(PORT, () => {
+  console.log(`application listen on http://localhost:${PORT}`);
 });
 module.exports = app;
