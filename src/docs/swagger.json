@@ -289,16 +289,25 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": {
+                "nama_produk": {
                   "type": "string"
                 },
-                "price": {
+                "harga": {
                   "type": "number"
                 },
-                "stock": {
+                "persediaan": {
                   "type": "number"
                 },
-                "description": {
+                "deskripsi": {
+                  "type": "string"
+                },
+                "kategori": {
+                  "type": "string"
+                },
+                "terjual": {
+                  "type": "number"
+                },
+                "rating": {
                   "type": "string"
                 }
               }
@@ -409,12 +418,12 @@
         }
       }
     },
-    "/api/catalog": {
+    "/api/category": {
       "get": {
-        "summary": "API get semua product.",
-        "description": "API untuk mengambil semua produk tanpa kecuali.\nUntuk memberikan informasi tentang data produk\n",
+        "summary": "API get semua category.",
+        "description": "API untuk mengambil semua kategori tanpa kecuali.\nUntuk memberikan informasi tentang data kategori\n",
         "tags": [
-          "Catalog"
+          "Category"
         ],
         "parameters": [
           {
@@ -443,17 +452,17 @@
         }
       },
       "post": {
-        "summary": "API Simpan produk",
-        "description": "API untuk menyimpan produk sesukamu",
+        "summary": "API Simpan kategori",
+        "description": "API untuk menyimpan kategori sesukamu",
         "tags": [
-          "Catalog"
+          "Category"
         ],
         "parameters": [
           {
-            "name": "produk",
+            "name": "kategori",
             "in": "body",
             "required": true,
-            "description": "Data produk yang akan ditambahkan",
+            "description": "Data kategori yang akan ditambahkan",
             "schema": {
               "type": "object",
               "properties": {
@@ -483,12 +492,12 @@
         }
       }
     },
-    "/api/catalog/{id}": {
+    "/api/category/{id}": {
       "get": {
         "summary": "API get satu product.",
-        "description": "API untuk mengambil satu produk\nUntuk memberikan informasi tentang data produk\n",
+        "description": "API untuk mengambil satu kategori\nUntuk memberikan informasi tentang data kategori\n",
         "tags": [
-          "Catalog"
+          "Category"
         ],
         "parameters": [
           {
@@ -509,9 +518,9 @@
       },
       "put": {
         "summary": "API update satu product.",
-        "description": "API untuk mengupdate satu produk\nUntuk mengubah data tentang produk\n",
+        "description": "API untuk mengupdate satu kategori\nUntuk mengubah data tentang kategori\n",
         "tags": [
-          "Catalog"
+          "Category"
         ],
         "parameters": [
           {
@@ -521,10 +530,10 @@
             "required": true
           },
           {
-            "name": "produk",
+            "name": "kategori",
             "in": "body",
             "required": true,
-            "description": "Data produk yang akan ditambahkan",
+            "description": "Data kategori yang akan ditambahkan",
             "schema": {
               "type": "object",
               "properties": {
@@ -555,14 +564,73 @@
       },
       "delete": {
         "summary": "API hapus satu product.",
-        "description": "API untuk menghapus satu produk\nUntuk menghapus informasi tentang data produk\n",
+        "description": "API untuk menghapus satu kategori\nUntuk menghapus informasi tentang data kategori\n",
         "tags": [
-          "Catalog"
+          "Category"
         ],
         "parameters": [
           {
             "in": "path",
             "name": "id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/cart": {
+      "get": {
+        "summary": "API get semua cart.",
+        "description": "API untuk mengambil semua keranjang tanpa kecuali.\nUntuk memberikan informasi tentang data keranjang\n",
+        "tags": [
+          "Cart"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "search",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "sortBy",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "sortTo",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/cart/{id}": {
+      "post": {
+        "summary": "API Tambah keranjang",
+        "description": "API untuk menambahkan produk ke keranjang",
+        "tags": [
+          "Cart"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
             "type": "string",
             "required": true
           }

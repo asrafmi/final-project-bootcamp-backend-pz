@@ -3,6 +3,7 @@ const router = express.Router();
 const userCtrl = require('../controller/user.controller');
 const productCtrl = require('../controller/product.controller');
 const categoryCtrl = require('../controller/productCategory.controller');
+const cartCtrl = require('../controller/cart.controller');
 const { auth, isSeller } = require('../middleware/auth');
 
 router.post('/users/register', userCtrl.create);
@@ -23,5 +24,9 @@ router.post('/category', auth, isSeller, categoryCtrl.create);
 router.get('/category/:id', categoryCtrl.getOne);
 router.put('/category/:id', auth, isSeller, categoryCtrl.update);
 router.delete('/category/:id', auth, isSeller, categoryCtrl.destroy);
+
+router.get('/cart', auth, cartCtrl.fetch);
+router.post('/cart/:id', auth, cartCtrl.create);
+router.delete('/cart/:id', auth, cartCtrl.remove);
 
 module.exports = router;

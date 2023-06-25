@@ -1,3 +1,4 @@
+const { default: to } = require('await-to-js');
 const Product = require('../models/product');
 
 async function fetch(page, limit) {
@@ -22,7 +23,10 @@ async function getOne(id) {
   return data;
 }
 async function create(body) {
-  let product = Product.create({ ...body });
+  let [err, product] = await to(Product.create({ ...body }));
+  if (err) {
+    throw new Error('Internal Server Error')
+  }
   return product;
 }
 async function update(body, id) {
