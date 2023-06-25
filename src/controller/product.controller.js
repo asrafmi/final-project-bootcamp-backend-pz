@@ -13,11 +13,11 @@ async function getOne(req, res) {
   try {
     const [err, data] = await to(productSvc.getOne(req.params.id))
     if (err) {
-      throw new Error('Data tidak ditemukan!')
+      throw new Error('Produk tidak ditemukan!')
     }
     res.send(data);
   } catch (error) {
-    if (error.message === 'Data tidak ditemukan!') {
+    if (error.message === 'Produk tidak ditemukan!') {
       res.status(404).send({
         message: `${error.message}`
       })
@@ -40,11 +40,11 @@ async function update(req, res) {
   try {
     const [err, data] = await to(productSvc.update(req.body, req.params.id));
     if (err) {
-      throw new Error('Data tidak ditemukan!')
+      throw new Error('Produk tidak ditemukan!')
     }
     res.status(202).send(data);
   } catch (error) {
-    if (error.message === 'Data tidak ditemukan!') {
+    if (error.message === 'Produk tidak ditemukan!') {
       res.status(404).send({
         message: `${error.message}`
       })
@@ -59,11 +59,11 @@ async function destroy(req, res) {
   try {
     const [err, data] = await to(productSvc.destroy(req.params.id));
     if (err) {
-      throw new Error('Data tidak ditemukan!')
+      throw new Error('Produk tidak ditemukan!')
     }
-    res.status(204).send('Data telah dihapus');
+    res.status(204).send('Produk telah dihapus');
   } catch (error) {
-    if (error.message === 'Data tidak ditemukan!') {
+    if (error.message === 'Produk tidak ditemukan!') {
       res.status(404).send({
         message: `${error.message}`
       })

@@ -27,7 +27,12 @@ var userSchema = new Schema({
   },
   role: {
     type: String,
-    default: "user",
+    default: "Customer",
+    enum: [
+      "Customer",
+      "Seller"
+    ],
+    require: true
   },
   cart: {
     type: Array,

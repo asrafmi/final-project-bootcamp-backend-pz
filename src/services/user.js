@@ -6,11 +6,15 @@ async function fetch() {
   if (data.length) {
     return data;
   } else {
-    return { message: 'Data kosong' };
+    return { message: 'Data user kosong' };
   }
 }
 async function getOne(id) {
   const data = await User.findOne({ _id: id });
+  console.log(data);
+  if (!data) {
+    throw new Error('Data user tidak ditemukan')
+  }
   return data;
 }
 async function create(body) {
@@ -34,13 +38,13 @@ async function login(body) {
       token: generateToken(cariUser._id),
     }
   } else {
-    throw new Error('Email dan password tidak benar')
+    throw new Error('Email dan password user tidak benar')
   }
 }
 async function update(body, id) {
-   const data = await User.findByIdAndUpdate(
+  const data = await User.findByIdAndUpdate(
     id,
-    { 
+    {
       firstname: body.firstname,
       lastname: body.lastname,
       email: body.email,
@@ -51,14 +55,14 @@ async function update(body, id) {
     }
   );
   if (!data) {
-    throw new Error('Data tidak ditemukan')
+    throw new Error('Data user tidak ditemukan')
   }
   return data;
 }
 async function destroy(id) {
   const data = await User.findByIdAndDelete(id);
   if (!data) {
-    throw new Error('Data tidak ditemukan')
+    throw new Error('Data user tidak ditemukan')
   }
   return data;
 }

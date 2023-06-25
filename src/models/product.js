@@ -5,31 +5,37 @@ const Schema = mongoose.Schema;
 
 const productSchema = new Schema(
   {
-    name: {
+    nama_produk: {
       type: String,
       required: true,
     },
-    category_id: {
+    harga: {
       type: Number,
       required: true,
     },
-    price: {
+    persediaan: {
       type: Number,
       required: true,
     },
-    stock: {
-      type: Number,
-      required: true,
-    },
-    description: {
+    deskripsi: {
       type: String,
       required: true,
+    },
+    kategori: {
+      type: String,
+      require: true
+    },
+    terjual: {
+      type: Number,
+      default: 0,
     },
     rating: {
       type: Decimal128,
-      required: true,
     },
   },
+  {
+    timestamps: true,
+  }
 );
 
 const Product = mongoose.model('Product', productSchema);
