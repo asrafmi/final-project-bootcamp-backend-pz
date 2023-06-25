@@ -16,12 +16,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
  * routing
  */
 const routesApi = require("./src/routes/route");
-app.use("/api", routesApi);
+const auth = require("./src/middleware/auth");
+
+app.use("/api", auth, routesApi);
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swagger))
 
 
 app.use(notFound);
 app.use(errorHandler);
+
 app.listen(PORT, () => {
   console.log(`application listen on http://localhost:${PORT}`);
 });
