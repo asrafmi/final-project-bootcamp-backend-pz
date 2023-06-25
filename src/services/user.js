@@ -1,4 +1,3 @@
-const { default: to } = require('await-to-js');
 const User = require('../models/user');
 
 async function fetch() {
