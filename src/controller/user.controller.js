@@ -33,7 +33,19 @@ async function create(req, res) {
     const user = await userSvc.create(req.body);
     res.status(201).send(user);
   } catch (error) {
-    res.status(500)
+    if (error.message === 'Email sudah terdaftar') {
+      res.status(404).send({
+        message: `${error.message}`
+      })
+    } else if (error.message === 'Mobile phone sudah terdaftar') {
+      res.status(404).send({
+        message: `${error.message}`
+      })
+    } else {
+      res.status(500).send({
+        message: `${error.message}`
+      })
+    }
   }
 }
 async function update(req, res) {

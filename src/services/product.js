@@ -13,7 +13,7 @@ async function getOne(id) {
   return data;
 }
 async function create(body) {
-  let product = Product.insertMany({ ...body });
+  let product = Product.create({ ...body });
   return product;
 }
 async function update(body, id) {

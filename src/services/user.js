@@ -13,7 +13,17 @@ async function getOne(id) {
   return data;
 }
 async function create(body) {
-  let user = await User.insertMany({ ...body });
+  let email = body.email;
+  let mobile = body.mobile;
+  let cariUser = await User.findOne({email})
+  let cariMobile = await User.findOne({mobile})
+  if(cariUser){
+    throw new Error('Email sudah terdaftar')
+  }
+  if(cariMobile){
+    throw new Error('Mobile phone sudah terdaftar')
+  }
+  let user = await User.create({ ...body });
   return user;
 }
 async function update(body, id) {
