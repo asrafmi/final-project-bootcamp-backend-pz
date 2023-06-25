@@ -196,9 +196,6 @@
                 },
                 "mobile": {
                   "type": "string"
-                },
-                "password": {
-                  "type": "string"
                 }
               }
             }

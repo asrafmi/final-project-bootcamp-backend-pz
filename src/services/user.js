@@ -38,17 +38,7 @@ async function login(body) {
   }
 }
 async function update(body, id) {
-  let { email, mobile } = body;
-  let cariUser = await User.findOne({ email })
-  let cariMobile = await User.findOne({ mobile })
-  if (cariUser) {
-    throw new Error('Email sudah terdaftar')
-  }
-  if (cariMobile) {
-    throw new Error('Mobile phone sudah terdaftar')
-  }
-
-  const data = await User.findByIdAndUpdate(
+   const data = await User.findByIdAndUpdate(
     id,
     { 
       firstname: body.firstname,

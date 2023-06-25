@@ -73,15 +73,7 @@ async function update(req, res) {
       res.status(404).send({
         message: `${error.message}`
       })
-    } else if (error.message === 'Email sudah terdaftar') {
-      res.status(409).send({
-        message: `${error.message}`
-      })
-    } else if (error.message === 'Mobile phone sudah terdaftar') {
-      res.status(409).send({
-        message: `${error.message}`
-      })
-    } else {
+    }  else {
       res.status(500).send({
         message: `${error.message}`
       })
@@ -91,7 +83,7 @@ async function update(req, res) {
 async function destroy(req, res) {
   try {
     const data = await userSvc.destroy(req.params.id);
-    res.status(204).send(data);
+    res.status(204).send('Data terhapus');
   } catch (error) {
     if (error.message === 'Data tidak ditemukan') {
       res.status(404).send({
