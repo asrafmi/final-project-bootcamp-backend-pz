@@ -1,3 +1,4 @@
+const { generateToken } = require('../../config/jwtToken');
 const User = require('../models/user');
 
 async function fetch() {
@@ -13,23 +14,48 @@ async function getOne(id) {
   return data;
 }
 async function create(body) {
-  let email = body.email;
-  let mobile = body.mobile;
-  let cariUser = await User.findOne({email})
-  let cariMobile = await User.findOne({mobile})
-  if(cariUser){
+  let { email, mobile } = body;
+  let cariUser = await User.findOne({ email })
+  let cariMobile = await User.findOne({ mobile })
+  if (cariUser) {
     throw new Error('Email sudah terdaftar')
   }
-  if(cariMobile){
+  if (cariMobile) {
     throw new Error('Mobile phone sudah terdaftar')
   }
   let user = await User.create({ ...body });
   return user;
 }
+async function login(body) {
+  let { email, password } = body;
+  let cariUser = await User.findOne({ email })
+  if (cariUser && (await cariUser.isPasswordMatched(password))) {
+    return {
+      token: generateToken(cariUser._id),
+    }
+  } else {
+    throw new Error('Email dan password tidak benar')
+  }
+}
 async function update(body, id) {
-  const data = await User.findOneAndUpdate(
-    { _id: id },
-    { ...body },
+  let { email, mobile } = body;
+  let cariUser = await User.findOne({ email })
+  let cariMobile = await User.findOne({ mobile })
+  if (cariUser) {
+    throw new Error('Email sudah terdaftar')
+  }
+  if (cariMobile) {
+    throw new Error('Mobile phone sudah terdaftar')
+  }
+
+  const data = await User.findByIdAndUpdate(
+    id,
+    { 
+      firstname: body.firstname,
+      lastname: body.lastname,
+      email: body.email,
+      mobile: body.mobile,
+    },
     {
       new: true,
     }
@@ -40,7 +66,7 @@ async function update(body, id) {
   return data;
 }
 async function destroy(id) {
-  const data = await User.findOneAndDelete({ _id: id });
+  const data = await User.findByIdAndDelete(id);
   if (!data) {
     throw new Error('Data tidak ditemukan')
   }
@@ -50,6 +76,7 @@ async function destroy(id) {
 module.exports = {
   fetch,
   getOne,
+  login,
   create,
   update,
   destroy,

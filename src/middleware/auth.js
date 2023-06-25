@@ -19,4 +19,14 @@ const auth = (req, res, next) => {
   }
 };
 
-module.exports = auth;
+const isAdmin = async (req, res, next) => {
+  const { email } = req.user;
+  const adminUser = await User.findOne({ email });
+  if (adminUser.role !== "admin") {
+    res.status(403).send({ message: 'user is not an Admin!' });
+  } else {
+    next();
+  }
+};
+
+module.exports = {auth, isAdmin};

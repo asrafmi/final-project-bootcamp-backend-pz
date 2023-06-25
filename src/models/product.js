@@ -30,7 +30,6 @@ const productSchema = new Schema(
       required: true,
     },
   },
-  { collection: 'products' }
 );
 
 const Product = mongoose.model('Product', productSchema);
