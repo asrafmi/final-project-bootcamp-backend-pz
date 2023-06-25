@@ -2,11 +2,20 @@ const { to } = require('await-to-js')
 const productSvc = require("../services/product");
 
 async function fetch(req, res) {
+  const page = parseInt(req.query.page) || 1; // Current page number (default: 1)
+  const limit = parseInt(req.query.limit) || 10; // Number of items per page (default: 10)
+  
   try {
-    const data = await productSvc.fetch();
-    res.send(data);
+    const { data, totalPages, totalItems } = await productSvc.fetch(page, limit);
+    res.send({
+      data,
+      page,
+      limit,
+      totalPages,
+      totalItems
+    });
   } catch (error) {
-    res.status(500)
+    res.status(500).send({ message: 'Internal server error!' });
   }
 }
 async function getOne(req, res) {

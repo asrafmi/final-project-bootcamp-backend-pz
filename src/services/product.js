@@ -1,11 +1,17 @@
 const Product = require('../models/product');
 
-async function fetch() {
-  const data = await Product.find({});
+async function fetch(page, limit) {
+  const totalItems = await Product.countDocuments({});
+  const totalPages = Math.ceil(totalItems / limit);
+
+  const data = await Product.find({})
+    .skip((page - 1) * limit)
+    .limit(limit);
+
   if (data.length) {
-    return data;
+    return { data, totalPages, totalItems };
   } else {
-    return { message: 'Produk kosong' };
+    return { message: 'Produk kosong', totalPages, totalItems };
   }
 }
 async function getOne(id) {
