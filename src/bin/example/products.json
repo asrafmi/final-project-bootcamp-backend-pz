@@ -4,23 +4,23 @@
     "category_id": 1,
     "price": 2500,
     "stock": 200,
-    "description": "",
+    "description": "Ini deskripsi dari minuman soda",
     "rating": 4
   },
   {
-    "name": "Minuman Soda",
+    "name": "Minuman Elektrolit",
     "category_id": 1,
-    "price": 2500,
-    "stock": 200,
-    "description": "",
-    "rating": 4
+    "price": 5000,
+    "stock": 250,
+    "description": "Ini deskripsi dari minuman elektrolit",
+    "rating": 4.3
   },
   {
-    "name": "Minuman Soda",
+    "name": "Air Mineral",
     "category_id": 1,
-    "price": 2500,
-    "stock": 200,
-    "description": "",
-    "rating": 4
+    "price": 200,
+    "stock": 700,
+    "description": "Ini deskripsi dari air mineral",
+    "rating": 5
   }
 ]

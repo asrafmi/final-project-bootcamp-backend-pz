@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "firstname": "John",
+    "lastname": "Doe",
+    "email": "johndoe@gmail.com",
+    "mobile": "081234567890",
+    "password": "asdfASDF1234!@#$",
+    "role": "admin"
+  },
+  {
+    "id": 2,
+    "firstname": "John",
+    "lastname": "Cenna",
+    "email": "johncenna@gmail.com",
+    "mobile": "081234567891",
+    "password": "asdfASDF1234!@#$",
+    "role": "user"
+  },
+  {
+    "id": 3,
+    "firstname": "John",
+    "lastname": "Mayer",
+    "email": "johnmayer@gmail.com",
+    "mobile": "081234567890",
+    "password": "asdfASDF1234!@#$",
+    "role": "user"
+  }
+]

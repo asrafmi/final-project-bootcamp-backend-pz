@@ -13,8 +13,7 @@ async function getOne(id) {
   return data;
 }
 async function create(body) {
-  let product = new Product({ ...body });
-  product = await product.save();
+  let product = Product.insertMany({ ...body });
   return product;
 }
 async function update(body, id) {
@@ -25,14 +24,14 @@ async function update(body, id) {
       new: true,
     }
   );
-  if(!data){
+  if (!data) {
     throw new Error('Data tidak ditemukan')
   }
   return data;
 }
 async function destroy(id) {
   const data = await Product.findOneAndDelete({ _id: id });
-  if(!data){
+  if (!data) {
     throw new Error('Data tidak ditemukan')
   }
   return data;
