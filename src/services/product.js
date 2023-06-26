@@ -1,11 +1,16 @@
 const { default: to } = require('await-to-js');
 const Product = require('../models/product');
 
-async function fetch(page, limit) {
-  const totalItems = await Product.countDocuments({});
+async function fetch(page, limit, kategori) {
+  let query = {};
+  if (kategori) {
+    query.kategori = kategori;
+  }
+
+  const totalItems = await Product.countDocuments(query);
   const totalPages = Math.ceil(totalItems / limit);
 
-  const data = await Product.find({})
+  const data = await Product.find(query)
     .skip((page - 1) * limit)
     .limit(limit);
 

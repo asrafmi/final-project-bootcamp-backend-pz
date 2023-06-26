@@ -4,9 +4,10 @@ const productSvc = require("../services/product");
 async function fetch(req, res) {
   const page = parseInt(req.query.page) || 1; // Current page number (default: 1)
   const limit = parseInt(req.query.limit) || 10; // Number of items per page (default: 10)
-  
+  const kategori = req.query.kategori;
+
   try {
-    const { data, totalPages, totalItems } = await productSvc.fetch(page, limit);
+    const { data, totalPages, totalItems } = await productSvc.fetch(page, limit, kategori);
     res.send({
       data,
       page,

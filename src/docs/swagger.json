@@ -234,7 +234,7 @@
           {
             "in": "query",
             "name": "kategori",
-            "description": "Kategori:\n * `Makanan` \n * `Minuman` \n  * `Elektronik` \n",
+            "description": "Contoh Kategori:\n * `Makanan` \n * `Minuman` \n  * `Elektronik` \n",
             "schema": {
               "type": "string"
             }
