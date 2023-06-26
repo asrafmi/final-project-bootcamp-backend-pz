@@ -1,3 +1,4 @@
+const { default: to } = require('await-to-js');
 const Cart = require('../models/cart');
 const Product = require('../models/product')
 
@@ -9,8 +10,15 @@ async function fetch(page, limit) {
     .skip((page - 1) * limit)
     .limit(limit);
 
+  // todo masukin harga
+  let totalPrice = 0;
+
+  for (const cartItem of data) {
+    totalPrice += cartItem.product[0].harga;
+  }
+
   if (data.length) {
-    return { data, totalPages, totalItems };
+    return { data, price, totalPages, totalItems };
   } else {
     return { message: 'Produk kosong', totalPages, totalItems };
   }
@@ -22,11 +30,9 @@ async function create(id) {
     throw new Error('Produk tidak ditemukan')
   }
 
-  console.log('product', product);
-  let object = {}
-  object.product = product
+
   // to do masukkan produk ke keranjang
-  let cart = Cart.create({ products: [object] });
+  let [err, cart] = await to(Cart.create({ product }));
   return cart;
 }
 
