@@ -19,12 +19,6 @@ router.get('/products/:id', productCtrl.getOne);
 router.put('/products/:id', auth, isSeller, productCtrl.update);
 router.delete('/products/:id', auth, isSeller, productCtrl.destroy);
 
-router.get('/category', categoryCtrl.fetch);
-router.post('/category', auth, isSeller, categoryCtrl.create);
-router.get('/category/:id', categoryCtrl.getOne);
-router.put('/category/:id', auth, isSeller, categoryCtrl.update);
-router.delete('/category/:id', auth, isSeller, categoryCtrl.destroy);
-
 router.get('/cart', auth, cartCtrl.fetch);
 router.post('/cart/:id', auth, cartCtrl.create);
 router.delete('/cart/:id', auth, cartCtrl.remove);
