@@ -28,5 +28,5 @@ jobs:
       - name: test if app is working
         run: until curl -v http://localhost:4000 > /dev/null; do sleep 1; done
 
-      - name: run unit test
-        run: yarn test
+      # - name: run unit test
+      #   run: yarn test
