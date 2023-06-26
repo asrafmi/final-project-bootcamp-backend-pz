@@ -6,7 +6,7 @@ WORKDIR /src
 
 COPY . .
 
-run yarn
+RUN yarn
 
 EXPOSE 4000
 
