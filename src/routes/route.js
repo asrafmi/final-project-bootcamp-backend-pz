@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const userCtrl = require('../controller/user.controller');
 const productCtrl = require('../controller/product.controller');
-const categoryCtrl = require('../controller/productCategory.controller');
 const cartCtrl = require('../controller/cart.controller');
 const { auth, isSeller } = require('../middleware/auth');
 

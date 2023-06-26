@@ -7,10 +7,7 @@
   },
   "host": "localhost:4000",
   "basePath": "/",
-  "schemes": [
-    "http",
-    "https"
-  ],
+  "schemes": ["http", "https"],
   "securityDefinitions": {
     "Bearer": {
       "type": "apiKey",
@@ -29,9 +26,7 @@
       "post": {
         "summary": "API register user",
         "description": "API untuk menyimpan user sesukamu",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [
           {
             "name": "user",
@@ -57,19 +52,14 @@
                   "type": "string"
                 },
                 "role": {
-                  "enum": [
-                    "Seller",
-                    "Customer"
-                  ],
+                  "enum": ["Seller", "Customer"],
                   "default": "Customer"
                 }
               }
             }
           }
         ],
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -81,9 +71,7 @@
       "post": {
         "summary": "API login user",
         "description": "API untuk user login",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [
           {
             "name": "user",
@@ -103,9 +91,7 @@
             }
           }
         ],
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -117,9 +103,7 @@
       "get": {
         "summary": "API get semua users.",
         "description": "API untuk mengambil semua user tanpa kecuali.\nUntuk memberikan informasi tentang data user\n",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [
           {
             "in": "query",
@@ -137,9 +121,7 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -151,9 +133,7 @@
       "get": {
         "summary": "API get satu user.",
         "description": "API untuk mengambil satu user\nUntuk memberikan informasi tentang data user\n",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [
           {
             "in": "path",
@@ -162,9 +142,7 @@
             "required": true
           }
         ],
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -174,9 +152,7 @@
       "put": {
         "summary": "API update satu product.",
         "description": "API untuk mengupdate satu user\nUntuk mengubah data tentang user\n",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [
           {
             "in": "path",
@@ -208,9 +184,7 @@
             }
           }
         ],
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -220,9 +194,7 @@
       "delete": {
         "summary": "API hapus satu product.",
         "description": "API untuk menghapus satu user\nUntuk menghapus informasi tentang data user\n",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [
           {
             "in": "path",
@@ -231,9 +203,7 @@
             "required": true
           }
         ],
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -245,9 +215,7 @@
       "get": {
         "summary": "API get semua product.",
         "description": "API untuk mengambil semua produk tanpa kecuali.\nUntuk memberikan informasi tentang data produk\n",
-        "tags": [
-          "Produk"
-        ],
+        "tags": ["Produk"],
         "parameters": [
           {
             "in": "query",
@@ -265,9 +233,7 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -277,9 +243,7 @@
       "post": {
         "summary": "API Simpan produk",
         "description": "API untuk menyimpan produk sesukamu",
-        "tags": [
-          "Produk"
-        ],
+        "tags": ["Produk"],
         "parameters": [
           {
             "name": "produk",
@@ -303,20 +267,12 @@
                 },
                 "kategori": {
                   "type": "string"
-                },
-                "terjual": {
-                  "type": "number"
-                },
-                "rating": {
-                  "type": "string"
                 }
               }
             }
           }
         ],
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -328,9 +284,7 @@
       "get": {
         "summary": "API get satu product.",
         "description": "API untuk mengambil satu produk\nUntuk memberikan informasi tentang data produk\n",
-        "tags": [
-          "Produk"
-        ],
+        "tags": ["Produk"],
         "parameters": [
           {
             "in": "path",
@@ -339,9 +293,7 @@
             "required": true
           }
         ],
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -351,9 +303,7 @@
       "put": {
         "summary": "API update satu product.",
         "description": "API untuk mengupdate satu produk\nUntuk mengubah data tentang produk\n",
-        "tags": [
-          "Produk"
-        ],
+        "tags": ["Produk"],
         "parameters": [
           {
             "in": "path",
@@ -369,25 +319,26 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": {
+                "nama_produk": {
                   "type": "string"
                 },
-                "price": {
+                "harga": {
                   "type": "number"
                 },
-                "stock": {
+                "persediaan": {
                   "type": "number"
                 },
-                "description": {
+                "deskripsi": {
+                  "type": "string"
+                },
+                "kategori": {
                   "type": "string"
                 }
               }
             }
           }
         ],
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -397,9 +348,7 @@
       "delete": {
         "summary": "API hapus satu product.",
         "description": "API untuk menghapus satu produk\nUntuk menghapus informasi tentang data produk\n",
-        "tags": [
-          "Produk"
-        ],
+        "tags": ["Produk"],
         "parameters": [
           {
             "in": "path",
@@ -408,177 +357,7 @@
             "required": true
           }
         ],
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/category": {
-      "get": {
-        "summary": "API get semua category.",
-        "description": "API untuk mengambil semua kategori tanpa kecuali.\nUntuk memberikan informasi tentang data kategori\n",
-        "tags": [
-          "Category"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "search",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "sortBy",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "sortTo",
-            "type": "string"
-          }
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "post": {
-        "summary": "API Simpan kategori",
-        "description": "API untuk menyimpan kategori sesukamu",
-        "tags": [
-          "Category"
-        ],
-        "parameters": [
-          {
-            "name": "kategori",
-            "in": "body",
-            "required": true,
-            "description": "Data kategori yang akan ditambahkan",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "price": {
-                  "type": "number"
-                },
-                "quantity": {
-                  "type": "number"
-                }
-              }
-            }
-          }
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/category/{id}": {
-      "get": {
-        "summary": "API get satu product.",
-        "description": "API untuk mengambil satu kategori\nUntuk memberikan informasi tentang data kategori\n",
-        "tags": [
-          "Category"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "put": {
-        "summary": "API update satu product.",
-        "description": "API untuk mengupdate satu kategori\nUntuk mengubah data tentang kategori\n",
-        "tags": [
-          "Category"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": "kategori",
-            "in": "body",
-            "required": true,
-            "description": "Data kategori yang akan ditambahkan",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "price": {
-                  "type": "number"
-                },
-                "quantity": {
-                  "type": "number"
-                }
-              }
-            }
-          }
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "delete": {
-        "summary": "API hapus satu product.",
-        "description": "API untuk menghapus satu kategori\nUntuk menghapus informasi tentang data kategori\n",
-        "tags": [
-          "Category"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -590,9 +369,7 @@
       "get": {
         "summary": "API get semua cart.",
         "description": "API untuk mengambil semua keranjang tanpa kecuali.\nUntuk memberikan informasi tentang data keranjang\n",
-        "tags": [
-          "Cart"
-        ],
+        "tags": ["Cart"],
         "parameters": [
           {
             "in": "query",
@@ -610,9 +387,7 @@
             "type": "string"
           }
         ],
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -624,9 +399,7 @@
       "post": {
         "summary": "API Tambah keranjang",
         "description": "API untuk menambahkan produk ke keranjang",
-        "tags": [
-          "Cart"
-        ],
+        "tags": ["Cart"],
         "parameters": [
           {
             "name": "id",
@@ -635,9 +408,7 @@
             "required": true
           }
         ],
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"

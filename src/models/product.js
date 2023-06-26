@@ -30,7 +30,8 @@ const productSchema = new Schema(
       default: 0,
     },
     rating: {
-      type: Decimal128,
+      type: Number,
+      default: 0
     },
   },
   {
