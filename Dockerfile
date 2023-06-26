@@ -12,4 +12,4 @@ EXPOSE 4000
 
 ENV MONGO_URI=mongodb://mongo:27017/marketplace
 
-ENTRYPOINT [ "node", "src/app.js" ]
+ENTRYPOINT [ "node", "app.js" ]
