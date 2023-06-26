@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const userCtrl = require('../controller/user.controller');
 const productCtrl = require('../controller/product.controller');
-const cartCtrl = require('../controller/cart.controller');
 const { auth, isSeller } = require('../middleware/auth');
 
 router.post('/users/register', userCtrl.create);
@@ -18,8 +17,7 @@ router.get('/products/:id', productCtrl.getOne);
 router.put('/products/:id', auth, isSeller, productCtrl.update);
 router.delete('/products/:id', auth, isSeller, productCtrl.destroy);
 
-router.get('/cart', auth, cartCtrl.fetch);
-router.post('/cart/:id', auth, cartCtrl.create);
-router.delete('/cart/:id', auth, cartCtrl.remove);
+router.post('/order/:product_id', auth, userCtrl.createOrder);
+router.delete('/order/:order_id', auth, userCtrl.removeOrder);
 
 module.exports = router;
