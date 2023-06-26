@@ -1,5 +1,7 @@
 const userSvc = require("../services/user");
 const { to } = require('await-to-js')
+const jose = require('jose');
+const User = require("../models/user");
 
 async function fetch(req, res) {
   try {
@@ -76,7 +78,7 @@ async function update(req, res) {
       res.status(404).send({
         message: `${error.message}`
       })
-    }  else {
+    } else {
       res.status(500).send({
         message: `${error.message}`
       })
@@ -103,6 +105,55 @@ async function destroy(req, res) {
   }
 }
 
+async function createOrder(req, res) {
+  try {
+    const authHeader = req.headers['authorization'];
+    const jwtToken = authHeader.split('Bearer ')[1];
+    const decode = jose.decodeJwt(jwtToken, { complete: true });
+    const user = await User.findById(decode?.id);
+
+    const [errOrder, dataOrder] = await to(userSvc.createOrder(req.params.product_id, user._id))
+    if (errOrder) {
+      throw new Error('Produk tidak ditemukan!')
+    }
+    res.status(200).send(dataOrder)
+  } catch (error) {
+    if (error.message === 'Produk tidak ditemukan!') {
+      res.status(404).send({
+        message: `${error.message}`
+      })
+    } else {
+      res.status(500).send({
+        message: `${error.message}`
+      })
+    }
+  }
+}
+
+async function removeOrder(req, res) {
+  try {
+    const authHeader = req.headers['authorization'];
+    const jwtToken = authHeader.split('Bearer ')[1];
+    const decode = jose.decodeJwt(jwtToken, { complete: true });
+    const user = await User.findById(decode?.id);
+    const [errOrder, dataOrder] = await to(userSvc.removeOrder(req.body.product_id, user._id, req.params.order_id))
+    if (errOrder) {
+      throw new Error('Produk tidak ditemukan!')
+    }
+    res.status(200).send(dataOrder)
+  } catch (error) {
+    if (error.message === 'Produk tidak ditemukan!') {
+      res.status(404).send({
+        message: `${error.message}`
+      })
+    } else {
+      res.status(500).send({
+        message: `${error.message}`
+      })
+    }
+  }
+}
+
 module.exports = {
   fetch,
   getOne,
@@ -110,4 +161,6 @@ module.exports = {
   create,
   update,
   destroy,
+  createOrder,
+  removeOrder
 };
