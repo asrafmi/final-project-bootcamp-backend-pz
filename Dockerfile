@@ -10,6 +10,6 @@ RUN yarn
 
 EXPOSE 4000
 
-ENV MONGODB_URL=mongodb://admin:pass@127.0.0.1:27017/marketplace
+ENV MONGODB_URL=mongodb://10.0.8.2:27017/marketplace
 
 ENTRYPOINT [ "node", "app.js" ]
