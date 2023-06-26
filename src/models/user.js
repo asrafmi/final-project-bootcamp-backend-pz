@@ -34,14 +34,10 @@ var userSchema = new Schema({
     ],
     require: true
   },
-  cart: {
+  order: {
     type: Array,
     default: [],
-  },
-  address: {
-    type: String,
-  },
-  wishlist: [{ type: Schema.Types.ObjectId, ref: "Product" }],
+  }
 },
   {
     timestamps: true,

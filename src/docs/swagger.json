@@ -219,18 +219,25 @@
         "parameters": [
           {
             "in": "query",
-            "name": "search",
-            "type": "string"
+            "name": "page",
+            "schema": {
+              "type": "number"
+            }
           },
           {
             "in": "query",
-            "name": "sortBy",
-            "type": "string"
+            "name": "limit",
+            "schema": {
+              "type": "number"
+            }
           },
           {
             "in": "query",
-            "name": "sortTo",
-            "type": "string"
+            "name": "kategori",
+            "description": "Kategori:\n * `Makanan` \n * `Minuman` \n  * `Elektronik` \n",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "produces": ["application/json"],
@@ -266,7 +273,8 @@
                   "type": "string"
                 },
                 "kategori": {
-                  "type": "string"
+                  "enum": ["Minuman", "Makanan", "Elektronik"],
+                  "default": "Makanan"
                 }
               }
             }
@@ -332,7 +340,8 @@
                   "type": "string"
                 },
                 "kategori": {
-                  "type": "string"
+                  "enum": ["Minuman", "Makanan", "Elektronik"],
+                  "default": "Makanan"
                 }
               }
             }
