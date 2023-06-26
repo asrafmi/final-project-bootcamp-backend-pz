@@ -11,7 +11,6 @@ async function fetch() {
 }
 async function getOne(id) {
   const data = await User.findOne({ _id: id });
-  console.log(data);
   if (!data) {
     throw new Error('Data user tidak ditemukan')
   }

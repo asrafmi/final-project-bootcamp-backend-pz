@@ -1,26 +1,29 @@
 [
   {
-    "name": "Minuman Soda",
-    "category_id": 1,
-    "price": 2500,
-    "stock": 200,
-    "description": "Ini deskripsi dari minuman soda",
+    "nama_produk": "Minuman Soda",
+    "kategori": "Minuman",
+    "harga": 2500,
+    "persediaan": 200,
+    "deskripsi": "Ini deskripsi dari minuman soda",
+    "terjual": 0,
     "rating": 4
   },
   {
-    "name": "Minuman Elektrolit",
-    "category_id": 1,
-    "price": 5000,
-    "stock": 250,
-    "description": "Ini deskripsi dari minuman elektrolit",
-    "rating": 4.3
+    "nama_produk": "Minuman Elektrolit",
+    "kategori": "Minuman",
+    "harga": 2500,
+    "persediaan": 200,
+    "deskripsi": "Ini deskripsi dari minuman elektrolit",
+    "terjual": 0,
+    "rating": 3
   },
   {
-    "name": "Air Mineral",
-    "category_id": 1,
-    "price": 200,
-    "stock": 700,
-    "description": "Ini deskripsi dari air mineral",
+    "nama_produk": "Minuman Mineral",
+    "kategori": "Minuman",
+    "harga": 2500,
+    "persediaan": 200,
+    "deskripsi": "Ini deskripsi dari minuman mineral",
+    "terjual": 0,
     "rating": 5
   }
 ]

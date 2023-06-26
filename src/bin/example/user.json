@@ -5,8 +5,8 @@
     "lastname": "Doe",
     "email": "johndoe@gmail.com",
     "mobile": "081234567890",
-    "password": "asdfASDF1234!@#$",
-    "role": "admin"
+    "password": "$2b$10$S7C7oAaYVatEmCLMDP2amOuqxMTJmfSNLk3vGO6PrUnmmEVB5hLQO",
+    "role": "Customer"
   },
   {
     "id": 2,
@@ -14,8 +14,8 @@
     "lastname": "Cenna",
     "email": "johncenna@gmail.com",
     "mobile": "081234567891",
-    "password": "asdfASDF1234!@#$",
-    "role": "user"
+    "password": "$2b$10$S7C7oAaYVatEmCLMDP2amOuqxMTJmfSNLk3vGO6PrUnmmEVB5hLQO",
+    "role": "Seller"
   },
   {
     "id": 3,
@@ -23,7 +23,7 @@
     "lastname": "Mayer",
     "email": "johnmayer@gmail.com",
     "mobile": "081234567890",
-    "password": "asdfASDF1234!@#$",
-    "role": "user"
+    "password": "$2b$10$S7C7oAaYVatEmCLMDP2amOuqxMTJmfSNLk3vGO6PrUnmmEVB5hLQO",
+    "role": "Customer"
   }
 ]
