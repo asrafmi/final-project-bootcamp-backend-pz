@@ -16,7 +16,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
  * routing
  */
 const routesApi = require("./src/routes/route");
-const auth = require("./src/middleware/auth");
 
 app.use("/api", routesApi);
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swagger))

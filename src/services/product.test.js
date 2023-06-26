@@ -46,7 +46,7 @@ describe('Product Service', () => {
 
   describe('getOne', () => {
     it('should return a product by ID', async () => {
-      jest.spyOn(Product, 'findOne').mockReturnValue(productFixtures[0]);
+      jest.spyOn(Product, 'findById').mockReturnValue(productFixtures[0]);
       const res = await productSvc.getOne();
       expect(res.nama_produk).toBe(productFixtures[0].nama_produk);
       expect(res.kategori).toBe(productFixtures[0].kategori);

@@ -21,7 +21,7 @@ async function fetch(page, limit, kategori) {
   }
 }
 async function getOne(id) {
-  const data = await Product.findOne({ _id: id });
+  const data = await Product.findById(id);
   if (!data) {
     throw new Error('Produk tidak ditemukan')
   }

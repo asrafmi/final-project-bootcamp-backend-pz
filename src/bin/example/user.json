@@ -1,29 +1,32 @@
 [
   {
-    "id": 1,
+    "_id": "64993f990c68ffd28073a9a1",
     "firstname": "John",
     "lastname": "Doe",
     "email": "johndoe@gmail.com",
     "mobile": "081234567890",
     "password": "$2b$10$S7C7oAaYVatEmCLMDP2amOuqxMTJmfSNLk3vGO6PrUnmmEVB5hLQO",
-    "role": "Customer"
+    "role": "Customer",
+    "token": "eyJhbGciOiJIU3w3siIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OTk0NzVhMzcyZGMyZDFhODk4ZDhlNiIsImlhdCI6MTY4Nzc2Njg4OCwiZXhwIjoxNjg3ODUzMjg4fQ.MtxdyAQj0Mh5v5MJ8EV4PwiE2_MSgDSoxgZcn9g4jug"
   },
   {
-    "id": 2,
+    "_id": "64993f990c68ffd28073a9a2",
     "firstname": "John",
     "lastname": "Cenna",
     "email": "johncenna@gmail.com",
     "mobile": "081234567891",
     "password": "$2b$10$S7C7oAaYVatEmCLMDP2amOuqxMTJmfSNLk3vGO6PrUnmmEVB5hLQO",
-    "role": "Seller"
+    "role": "Seller",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OTk0NzVhMzcyZGMyZDFhODk4ZDhlNiIsImlhdCI6MTY4Nzc2Njg4OCwiZXhwIjoxNjg3ODUzMjg4fQ.MtxdyAQj0Mh5v5MJ8EV4PwiE2_MSgDSoxgZcn9g4jug"
   },
   {
-    "id": 3,
+    "_id": "64993f990c68ffd28073a9a3",
     "firstname": "John",
     "lastname": "Mayer",
     "email": "johnmayer@gmail.com",
     "mobile": "081234567890",
     "password": "$2b$10$S7C7oAaYVatEmCLMDP2amOuqxMTJmfSNLk3vGO6PrUnmmEVB5hLQO",
-    "role": "Customer"
+    "role": "Customer",
+    "token": "eyJhbGciOiJIUzI1ds45InR5cCI6IkpXVCJ9.eyJpZCI6IjY0OTk0NzVhMzcyZGMyZDFhODk4ZDhlNiIsImlhdCI6MTY4Nzc2Njg4OCwiZXhwIjoxNjg3ODUzMjg4fQ.MtxdyAQj0Mh5v5MJ8EV4PwiE2_MSgDSoxgZcn9g4jug"
   }
 ]
