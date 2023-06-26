@@ -10,7 +10,7 @@ describe('Product Service', () => {
     it('should return paginated products', async () => {
       const mockProducts = productFixtures;
       const limit = 5;
-      const totalItems = 3;
+      const totalItems = productFixtures.length;
       const totalPages = Math.ceil(totalItems / limit);
 
       Product.countDocuments.mockResolvedValue(totalItems);
@@ -64,46 +64,53 @@ describe('Product Service', () => {
       Product.create.mockResolvedValue(mockProduct[0]);
 
       const res = await productSvc.create();
-      expect(res.nama_produk).toEqual(mockProduct[0].nama_produk);
-      expect(res.kategori).toEqual(mockProduct[0].kategori);
-      expect(res.harga).toEqual(mockProduct[0].harga);
-      expect(res.persediaan).toEqual(mockProduct[0].persediaan);
-      expect(res.deskripsi).toEqual(mockProduct[0].deskripsi);
-      expect(res.terjual).toEqual(mockProduct[0].terjual);
-      expect(res.rating).toEqual(mockProduct[0].rating);
+      expect(res.nama_produk).toBe(mockProduct[0].nama_produk);
+      expect(res.kategori).toBe(mockProduct[0].kategori);
+      expect(res.harga).toBe(mockProduct[0].harga);
+      expect(res.persediaan).toBe(mockProduct[0].persediaan);
+      expect(res.deskripsi).toBe(mockProduct[0].deskripsi);
+      expect(res.terjual).toBe(mockProduct[0].terjual);
+      expect(res.rating).toBe(mockProduct[0].rating);
     });
   });
 
   describe('update', () => {
     it('should update a product by ID', async () => {
       const mockProduct = productFixtures;
-      Product.findByIdAndUpdate.mockResolvedValue(mockProduct[0]);
+      Product.findByIdAndUpdate.mockResolvedValue(mockProduct[1]);
 
-      const data = await productSvc.update({ nama_produk: 'Product 1' }, 1);
-      console.log(data);
-      expect(data).toEqual(mockProduct[0]);
+      const res = await productSvc.update(mockProduct[0], mockProduct[0].id);
+      expect(res.nama_produk).toBe(mockProduct[1].nama_produk);
+      expect(res.kategori).toBe(mockProduct[1].kategori);
+      expect(res.harga).toBe(mockProduct[1].harga);
+      expect(res.persediaan).toBe(mockProduct[1].persediaan);
+      expect(res.deskripsi).toBe(mockProduct[1].deskripsi);
+      expect(res.terjual).toBe(mockProduct[1].terjual);
+      expect(res.rating).toBe(mockProduct[1].rating);
     });
 
     it('should throw an error if product is not found', async () => {
+      const mockProduct = productFixtures;
       Product.findByIdAndUpdate.mockResolvedValue(null);
 
-      await expect(productSvc.update({ name: 'Product 1' }, 100)).rejects.toThrow('Produk tidak ditemukan');
+      await expect(productSvc.update(mockProduct[0], mockProduct[0].id)).rejects.toThrow('Produk tidak ditemukan');
     });
   });
 
   describe('destroy', () => {
     it('should delete a product by ID', async () => {
-      const mockProduct = { id: 1, name: 'Product 1' };
-      Product.findByIdAndDelete.mockResolvedValue(mockProduct);
+      const mockProduct = productFixtures;
+      Product.findByIdAndDelete.mockResolvedValue(mockProduct[0]);
 
       const data = await productSvc.destroy(1);
-      expect(data).toEqual(mockProduct);
+      expect(data).toBe(mockProduct[0]);
     });
 
     it('should throw an error if product is not found', async () => {
+      const mockProduct = productFixtures;
       Product.findByIdAndDelete.mockResolvedValue(null);
 
-      await expect(productSvc.destroy(100)).rejects.toThrow('Produk tidak ditemukan');
+      await expect(productSvc.destroy(mockProduct[0])).rejects.toThrow('Produk tidak ditemukan');
     });
   });
 });
